@@ -25,12 +25,13 @@ for n in xrange(1,nt):
     for j in xrange(1,nx):
          phiN[j]=phiO[j]-c*(phi[j+1]-phi[j-1])
          #update phi for next time step
+    #periodic boundary conditiobns
+    phiN[0]=phiO[0]-c*(phi[1]-phi[nx-1])
+    phiN[nx]=phiN[0]
+
     phiO=phi.copy()
     phi=phiN.copy()
-
-#periodic boundary conditiobns
-phiN[0]=phiO[0]-c*(phi[1]-phi[nx-1])
-phiN[nx]=phiN[0]
+    
          
          
 u=1.
